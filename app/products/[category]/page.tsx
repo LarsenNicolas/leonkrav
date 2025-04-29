@@ -20,10 +20,11 @@ export default function CategoryProductsPage() {
     const params = useParams();
     const searchParams = useSearchParams();
     const pathname = usePathname();
+    const currentPath = pathname || "/default-path";
 
-    const category = Number(params.category);
-    const searchTerm = searchParams.get('search') || "";
-    const sortOrder = searchParams.get('sort') || "";
+    const category = params?.category ? Number(params.category) : 0;
+    const searchTerm = searchParams?.get('search') || "";
+    const sortOrder = searchParams?.get('sort') || "";
 
     // Función de filtrado
     const filterProducts = () => {
@@ -59,7 +60,7 @@ export default function CategoryProductsPage() {
             else newParams.delete(key);
         });
 
-        router.replace(`${pathname}?${newParams.toString()}`);
+        router.replace(`${currentPath}?${newParams.toString()}`);
     };
 
     return (
