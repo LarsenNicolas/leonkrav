@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useCartStore } from "@/store/useCartStore";
-import Button from "@/components/Button"; // Eliminar .jsx
+import Button from "@/lib/components/Button"; // Eliminar .jsx
 import { toast } from "react-toastify";
 import { CheckCircle } from "lucide-react";
 import products from "@/mock/products";

@@ -1,11 +1,13 @@
 'use client'
 
 import { ParallaxProvider } from 'react-scroll-parallax'
+import { LoadingSpinner } from '@/lib/components/LoadingSpinner'
 import dynamic from 'next/dynamic'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/lib/components/Navbar'
 import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
-import Footer from "@/components/Footer";
+import Footer from "@/lib/components/Footer";
+import {Suspense} from "react";
 
 const ToastContainer = dynamic(
     () => import('react-toastify').then(mod => mod.ToastContainer),
@@ -16,14 +18,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className="h-full">
         <body className="flex flex-col min-h-screen">
-        <ParallaxProvider>
-            <Navbar />
-            <main className="flex-grow">
-                {children}
-            </main>
-            <Footer />
-            <ToastContainer />
-        </ParallaxProvider>
+            <Suspense fallback={
+                <div className="fixed inset-0 bg-white/80 backdrop-blur-sm z-50 flex items-center justify-center">
+                    <LoadingSpinner size="lg" />
+                </div>
+            }>
+                <ParallaxProvider>
+                    <Navbar />
+                    <main className="flex-grow">
+                        {children}
+                    </main>
+                    <Footer />
+                    <ToastContainer />
+                </ParallaxProvider>
+            </Suspense>
         </body>
         </html>
     )

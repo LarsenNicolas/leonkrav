@@ -2,7 +2,7 @@
 
 import { useCartStore } from "@/store/useCartStore";
 import { Trash2 } from "lucide-react";
-import Button from "@/components/Button";
+import Button from "@/lib/components/Button";
 import { useRouter } from "next/navigation";
 
 interface Product {

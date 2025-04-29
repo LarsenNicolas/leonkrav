@@ -51,9 +51,8 @@ export default function CategoryProductsPage() {
 
     const filteredProducts = filterProducts();
 
-    // Manejar envío del formulario (CORREGIDO)
     const handleSearch = (formData: FormData) => {
-        const newParams = new URLSearchParams(searchParams.toString());
+        const newParams = new URLSearchParams(searchParams?.toString());
 
         formData.forEach((value, key) => {
             if (value) newParams.set(key, value.toString());
