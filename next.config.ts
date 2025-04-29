@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+    images: {
+        domains: ['icdn.tradew.com'], // Agrega todos los dominios usados
+    },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

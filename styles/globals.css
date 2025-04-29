@@ -1,4 +1,7 @@
-@import "tailwindcss";
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .animate-float {
     animation: float 3s ease-in-out infinite;
