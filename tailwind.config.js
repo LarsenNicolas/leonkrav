@@ -6,7 +6,11 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'primary-hover': 'rgba(211,202,202,0.71)'
+            }
+        },
     },
     plugins: [],
 }
