@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import ClientLayout from './ClientLayout'
 
 export const metadata: Metadata = {
-    title: 'Tu título acá',
-    description: 'Una descripción opcional',
+    title: 'LeonKrav',
+    description: 'Importamos calidad, entregamos confianza',
     icons: {
         icon: '/logo.png',
     },
