@@ -22,14 +22,24 @@ export default function Home() {
 
             <div
                 className="relative w-full h-screen bg-fixed bg-center bg-cover"
-                style={{ backgroundImage: 'url(/hero.png)' }}
+                style={{backgroundImage: 'url(/hero.png)'}}
             >
                 <div className="absolute inset-0 mix-blend-multiply"></div>
 
-                <div className="relative z-10 flex flex-col justify-center h-full text-white text-center px-4">
-                    <h1 className="text-5xl sm:text-7xl font-bold drop-shadow-md">
-                        LEONKRAV
+                <div
+                    className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+                    <img
+                        src="logo.png"
+                        alt="Logo"
+                        className="h-32 md:h-52 mb-6 drop-shadow-lg animate-float"
+                    />
+                    <h1 className="text-5xl sm:text-7xl font-serif font-bold drop-shadow-md">
+
                     </h1>
+                    <p className="mt-4 text-lg sm:text-2xl font-mono min-h-[3rem]">
+                        Importamos calidad, entregamos confianza
+                        <span className="border-r-2 border-white ml-1"/>
+                    </p>
                 </div>
             </div>
 
@@ -44,7 +54,7 @@ export default function Home() {
                         } items-center justify-center overflow-hidden py-12`}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{once: true, amount: 0.3}}
                         variants={fadeUp}
                     >
                         {/* Imagen */}
