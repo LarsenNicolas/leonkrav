@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'LeonKrav',
     description: 'Importamos calidad, entregamos confianza',
     icons: {
-        icon: '/logo.png',
+        icon: '/LeonKrav.jpg',
     },
 }
 
