@@ -8,7 +8,11 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'primary-hover': 'rgba(211,202,202,0.71)'
+                'primary-hover': 'rgba(211,202,202,0.71)',
+                'primary': '#000',
+                'secondary': '#d8b444',
+                'secondary-hover': '#ae9753',
+                'tertiary': '#34312a',
             },
             keyframes: {
                 spin: {

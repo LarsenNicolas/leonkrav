@@ -29,9 +29,9 @@ export default function Home() {
                 <div
                     className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
                     <img
-                        src="logo.png"
+                        src="/logo.png"
                         alt="Logo"
-                        className="h-32 md:h-52 mb-6 drop-shadow-lg animate-float"
+                        className="h-32 md:h-52 drop-shadow-lg invert brightness-200 contrast-200"
                     />
                     <h1 className="text-5xl sm:text-7xl font-serif font-bold drop-shadow-md">
 
