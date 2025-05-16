@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, FormEvent } from 'react';
-import { useCartStore } from "../../store/useCartStore";
+import { useCartStore } from "@/store/useCartStore";
 import { useRouter } from "next/navigation";
-import { CartItem } from "../../store/useCartStore";
+import { CartItem } from "@/store/useCartStore";
 
 interface FormErrors {
     name?: string;
@@ -61,35 +61,29 @@ const Checkout = () => {
             setIsProcessing(true);
 
             try {
-                const response = await fetch('/api/sendMail', {
+                const response = await fetch('/api/mercadopago', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         name,
                         email,
-                        cart: cart.map(item => ({
-                            product: item.product,
-                            quantity: item.quantity
-                        })),
-                        total,
                         whatsapp,
+                        address,
+                        shippingMethod,
+                        paymentMethod,
+                        cart,
                     }),
                 });
 
-                if (!response.ok) throw new Error('Error al enviar el mail');
+                if (!response.ok) throw new Error('Error al crear preferencia');
 
-                setShowModal(true);
-                clearCart();
-                setTimeout(() => {
-                    setShowModal(false);
-                    router.push('/');
-                }, 3000);
+                const data = await response.json();
+                console.log("data")
+                console.log(data)
+
             } catch (err) {
                 console.error(err);
-                alert('Hubo un error al enviar el mail 😢');
-            } finally {
+                alert('Error al procesar el pago 😢');
                 setIsProcessing(false);
             }
         }
