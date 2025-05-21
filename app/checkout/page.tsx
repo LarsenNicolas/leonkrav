@@ -78,8 +78,12 @@ const Checkout = () => {
                 if (!response.ok) throw new Error('Error al crear preferencia');
 
                 const data = await response.json();
-                console.log("data")
-                console.log(data)
+                if (data.init_point) {
+                    window.location.href = data.init_point;
+                } else {
+                    alert('No se pudo obtener la URL de pago.');
+                    setIsProcessing(false);
+                }
 
             } catch (err) {
                 console.error(err);

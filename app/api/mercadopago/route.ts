@@ -18,16 +18,19 @@ export async function POST(req: NextRequest) {
                     unit_price: item.product.price,
                     quantity: item.quantity,
                 })),
+                payer: {
+                    email: "test_user_123456@testuser.com" // Email de prueba REQUERIDO
+                },
                 back_urls: {
-                    success: 'https://localhost:3000/success',
-                    failure: 'https://localhost:3000/failure',
-                    pending: 'https://localhost:3000/pending',
+                    success: 'https://9ff2-2800-810-497-953e-2567-907a-6721-887a.ngrok-free.app/success',
+                    failure: 'https://9ff2-2800-810-497-953e-2567-907a-6721-887a.ngrok-free.app/failure',
+                    pending: 'https://9ff2-2800-810-497-953e-2567-907a-6721-887a.ngrok-free.app/pending',
                 },
                 auto_return: 'approved',
             }
         });
 
-        return NextResponse.json({ id: preference.id });
+        return NextResponse.json({ id: preference.id, init_point: preference.init_point });
     } catch (error: any) {
         console.error(error);
         return NextResponse.json({ error: 'Error al crear la preferencia' }, { status: 500 });
