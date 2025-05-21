@@ -1,8 +1,14 @@
 import { Suspense } from 'react';
 import ProductsContent from './ProductsContent';
 import { LoadingSpinner } from '@/lib/components/LoadingSpinner';
+import { getProducts } from '@/services/products';
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+
+    const products = await getProducts();
+
+    console.log(products)
+
     return (
         <Suspense fallback={
             <div className="text-center py-20">
